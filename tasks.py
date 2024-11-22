@@ -97,16 +97,19 @@ word_frequencies = {word: count for word, count in word_frequencies.items() if c
 # Your code here:
 # -----------------------------------------------
 def token_counts(string: str, k: int = 1) -> dict:
-    # First, use your tokenize function to extract tokens from the string
+    # First, use the tokenize function to extract tokens from the string
     tokens = tokenize(string)
     
     # Create a frequency count for each token in the string
-    word_frequencies = {word: tokens.count(word) for word in set(tokens)}
+    word_frequencies = {}
+    for word in tokens:
+        word_frequencies[word] = word_frequencies.get(word, 0) + 1
     
     # Filter tokens that appear more than 'k' times
     filtered_frequencies = {word: count for word, count in word_frequencies.items() if count > k}
     
     return filtered_frequencies
+
 
 
 # test:
