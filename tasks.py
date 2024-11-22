@@ -103,7 +103,7 @@ def token_counts(string: str, k: int = 1) -> dict:
     unique, counts = np.unique(tokens, return_counts=True)
     
     # Create a dictionary with word frequencies
-    word_frequencies = dict(zip(unique, counts))
+    word_frequencies = {str(word): count for word, count in zip(unique, counts)}
     
     # Filter out words that appear less than or equal to `k` times
     filtered_frequencies = {word: count for word, count in word_frequencies.items() if count > k}
