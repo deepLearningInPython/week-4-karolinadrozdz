@@ -26,4 +26,4 @@ def test_token_counts():
 
     obtained = token_counts(text, 10)
     assert type(obtained) == dict, "expected return type 'dict' (k=10)"
-    assert obtained == {}
+    assert obtained == {}, "expected an empty dictionary (k=10)"
